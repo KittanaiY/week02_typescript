@@ -9,7 +9,7 @@ app.get('/test', (req: Request, res:Response) => {
 })
 
 app.listen(port, () => {
-    console.log('App listening at http://localhost:${port}')
+    console.log(`App listening at http://localhost:${port}`)
 })
 
 interface Event{
@@ -105,7 +105,13 @@ const events: Event[] = [
 ];
 
 app.get("/events", (req,res) => {
-    res.json(events);
+    if (req.query.category) {
+        const category = req.query.category;
+        const filteredEvents = events.filter((event) => event.category === category);
+        res.json(filteredEvents);
+    } else {
+        res.json(events);
+    }
 });
 
 
