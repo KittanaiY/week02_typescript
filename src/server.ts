@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
-import {Event, getAllEvents, getEventByCategory, getEventById, addEvent } from "./services/EventService";
-
+import { getAllEvents, getEventByCategory, getEventById, addEvent } from "./services/EventService";
+import type { Event } from './models/Event';
 
 const app = express(); // recieve port 3000
 const port = 3000;
