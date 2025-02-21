@@ -56,7 +56,7 @@ app.post('/upload', upload.single('file'), async (req: any, res: any) => {
         }
 
         const bucket = 'images';
-        const filePath = `uploads/${file.originalname}`;
+        const filePath = `uploads`;
 
         const ouputUrl = await uploadFile(bucket, filePath, file);
         res.status(200).send(ouputUrl);
